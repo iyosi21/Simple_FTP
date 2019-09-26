@@ -1,4 +1,6 @@
 # -*- coding: utf8 -*-
+#参考：https://qiita.com/castaneai/items/8cb7cd3253275e7cf617
+#     すぐ作ってすぐ壊せるFTPサーバーを立てる (Pythonで)
 import pyftpdlib.authorizers
 import pyftpdlib.handlers
 import pyftpdlib.servers
@@ -6,8 +8,8 @@ import socket
 import os.path
 
 # ローカルホストのIPアドレスを取得
-host = socket.gethostname
-ip = socket.gethostbyname(host)
+# 複数IPアドレスを設定している場合はうまく行かない。
+ip = socket.gethostbyname(socket.gethostname())
 
 # 実行ファイルのパスを取得
 cur_path = os.path.dirname(__file__)
